@@ -1,4 +1,4 @@
-FROM mcqun/php-composer-swoole
+FROM mcqun/docker-composer-swoole
 
 ENV GIT_URL=null \
   GIT_BRANCH=master \
