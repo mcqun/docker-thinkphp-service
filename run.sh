@@ -7,8 +7,12 @@ if [ '`ls /app|wc -l`' != '0' ]; then
   mv -f $TEMP_DIR/* $TEMP_DIR/.[^.]* /app
   rm -rf $TEMP_DIR
   echo '----代码下载完毕----'
-  composer install
-  php think swoole
+    if [ '`ls /app|wc -l`' != '0' ]; then
+      composer install
+      php think swoole
+    else
+      echo '----文件转移失败----'
+    fi
   else
     echo '----GIT_URL未设置----'
   fi
