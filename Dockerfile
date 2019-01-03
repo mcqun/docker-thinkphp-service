@@ -8,7 +8,8 @@ RUN set -ex \
   && apk update \
   && apk add --no-cache git\
   && mkdir /app \
-  && chown -R www-data:www-data /app
+  && chown -R www-data:www-data /app \
+  && ls -ld /app
 
 USER www-data
 
