@@ -1,6 +1,6 @@
 #!/bin/sh
 if [ '`ls /app|wc -l`' != '0' ]; then
-  ls
+  ll /app
   if [ $GIT_URL != null ]; then
     echo '----开始下载代码----'
     git clone $GIT_URL /app -b $GIT_BRANCH
