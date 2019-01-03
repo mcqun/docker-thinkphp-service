@@ -2,7 +2,7 @@ FROM mcqun/docker-composer-swoole
 
 ENV GIT_URL=null \
   GIT_BRANCH=master \
-  APP_NAME=service
+  TEMP_DIR=/home/www-data/tmp
 
 RUN set -ex \
   && apk update \

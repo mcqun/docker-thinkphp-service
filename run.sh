@@ -3,10 +3,11 @@ if [ '`ls /app|wc -l`' != '0' ]; then
   ls -l /app
   if [ $GIT_URL != null ]; then
     echo '----开始下载代码----'
-    git clone $GIT_URL /app/$APP_NAME -b $GIT_BRANCH
+    git clone $GIT_URL $TEMP_DIR -b $GIT_BRANCH
+    mv -f $TEMP_DIR/* $TEMP_DIR/.[^.]* /app
+    rm -rf $TEMP_DIR
     echo '----代码下载完毕----'
     if [ '`ls /app|wc -l`' != '0' ]; then
-      cd /app/$APP_NAME
       composer install
       php think swoole
     else
@@ -17,7 +18,6 @@ if [ '`ls /app|wc -l`' != '0' ]; then
   fi
 else
   echo '----app目录已有内容----'
-  cd /app/$APP_NAME
   composer install
   php think swoole
 fi
