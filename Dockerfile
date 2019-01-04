@@ -15,7 +15,7 @@ USER www-data
 
 COPY --chown=www-data:www-data ./run.sh /
 
-RUN chmod -R 755 /run.sh
+RUN chmod +x /run.sh
 
 WORKDIR /app
 VOLUME /app
