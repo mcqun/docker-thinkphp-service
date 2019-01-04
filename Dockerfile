@@ -11,13 +11,13 @@ RUN set -ex \
   && chown -R www-data:www-data /app \
   && ls -ld /app
 
-USER www-data
-
-COPY --chown=www-data:www-data ./run.sh /
+COPY ./run.sh /
 
 RUN chmod +x /run.sh
 
 WORKDIR /app
 VOLUME /app
+
+USER www-data
 
 ENTRYPOINT /run.sh
