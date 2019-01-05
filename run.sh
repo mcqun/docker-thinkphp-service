@@ -1,13 +1,16 @@
 #!/bin/sh
-if [ '`ls -A /app|wc -w`' ]; then
+if [ '`ls -A /app|wc -w`' = '0' ]; then
   ls -ld /app
+  ls -A /app
   if [ $GIT_URL != null ]; then
+    echo '-----清空APP文件夹----'
+    rm -rf /app/* /app/.[^.]*
     echo '----开始下载代码----'
     git clone $GIT_URL $TEMP_DIR -b $GIT_BRANCH
     mv -f $TEMP_DIR/* $TEMP_DIR/.[^.]* /app
     rm -rf $TEMP_DIR
     echo '----代码下载完毕----'
-    if [ '`ls /app|wc -l`' != '0' ]; then
+    if [ '`ls -A /app|wc -w`' != '0' ]; then
       composer install
       php think swoole
     else
