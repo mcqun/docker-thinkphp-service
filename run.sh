@@ -16,7 +16,7 @@ if [ `ls -A /app|wc -w` = 0 ]; then
     if [ `ls -A /app|wc -w` > 0 ]; then
       ls -A /app
       composer install
-      php think swoole:server -p $SWOOLE_PORT
+      php think swoole -p $SWOOLE_PORT
     else
       echo '----文件转移失败----'
     fi
@@ -26,5 +26,5 @@ if [ `ls -A /app|wc -w` = 0 ]; then
 else
   echo '----app目录已有内容----'
   composer install
-  php think swoole:server -p $SWOOLE_PORT
+  php think swoole -p $SWOOLE_PORT
 fi
