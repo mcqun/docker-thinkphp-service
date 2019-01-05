@@ -1,9 +1,5 @@
 #!/bin/sh
-if [ '`ls /app|wc -l`' != '0' ]; then
-  echo '----app目录已有内容----'
-  composer install
-  php think swoole
-else
+if [ '`ls -A /app|wc -w`' ]; then
   ls -ld /app
   if [ $GIT_URL != null ]; then
     echo '----开始下载代码----'
@@ -20,4 +16,8 @@ else
   else
     echo '----GIT_URL未设置----'
   fi
+else
+  echo '----app目录已有内容----'
+  composer install
+  php think swoole
 fi
