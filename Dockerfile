@@ -2,6 +2,7 @@ FROM mcqun/docker-composer-swoole
 
 ENV GIT_URL=null \
   GIT_BRANCH=master \
+  SWOOLE_PORT=9501\
   TEMP_DIR=/home/www-data/tmp
 
 RUN set -ex \
