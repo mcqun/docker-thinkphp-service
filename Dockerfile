@@ -16,7 +16,6 @@ COPY ./run.sh /
 RUN chmod +x /run.sh
 
 WORKDIR /app
-VOLUME /app
 
 USER www-data
 
