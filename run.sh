@@ -7,6 +7,7 @@ if [ '`ls -A /app|wc -w`' = '0' ]; then
     rm -rf /app/* /app/.[^.]*
     echo '----开始下载代码----'
     git clone $GIT_URL $TEMP_DIR -b $GIT_BRANCH
+    echo '----GIT分支名：'$GIT_BRANCH'-----'
     mv -f $TEMP_DIR/* $TEMP_DIR/.[^.]* /app
     rm -rf $TEMP_DIR
     echo '----代码下载完毕----'
