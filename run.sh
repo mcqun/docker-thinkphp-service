@@ -1,6 +1,8 @@
 #!/bin/sh
 ls -ld /app
 ls -A /app
+echo '----文件数量：----'
+ls -A /app|wc -w
 if [ '`ls -A /app|wc -w`' = '0' ]; then
   if [ $GIT_URL != null ]; then
     echo '-----清空APP文件夹----'
